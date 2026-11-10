@@ -247,22 +247,6 @@
     padding: 0 16px;
   }
 
-  .credits-link {
-    position: fixed;
-    right: max(20px, env(safe-area-inset-right));
-    bottom: max(20px, env(safe-area-inset-bottom));
-    z-index: 3;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity .15s ease;
-  }
-  .credits-link:hover { opacity: 1; }
-
   /* Mobile portrait: flip tricolore to top/bottom bands */
   @media (max-width: 640px) {
     :root { --band: 44px; }
@@ -311,12 +295,6 @@
       font-size: 9px;
       letter-spacing: 0.24em;
     }
-    .credits-link {
-      bottom: calc(var(--band) + 14px + env(safe-area-inset-bottom));
-      right: 16px;
-      font-size: 9px;
-      letter-spacing: 0.14em;
-    }
   }
 
   /* Short landscape phones */
@@ -348,24 +326,23 @@
   <div class="candidates">
     <div class="candidate candidate--left">
       <div class="portrait">
-        <img src="img/marine-le-pen.jpg" alt="Marine Le Pen" loading="lazy" decoding="async">
-      </div>
-      <div class="name">Marine Le Pen</div>
-      <div class="party">RN</div>
-    </div>
-    <div class="vs">vs</div>
-    <div class="candidate candidate--right">
-      <div class="portrait">
         <img src="img/jean-luc-melenchon.jpg" alt="Jean-Luc Mélenchon" loading="lazy" decoding="async">
       </div>
       <div class="name">Jean-Luc Mélenchon</div>
       <div class="party">LFI</div>
     </div>
+    <div class="vs">vs</div>
+    <div class="candidate candidate--right">
+      <div class="portrait">
+        <img src="img/marine-le-pen.jpg" alt="Marine Le Pen" loading="lazy" decoding="async">
+      </div>
+      <div class="name">Marine Le Pen</div>
+      <div class="party">RN</div>
+    </div>
   </div>
 </main>
 
 <div class="footer-mark">Liberté · Égalité · Fraternité</div>
-<a class="credits-link" href="CREDITS.md">Crédits</a>
 
 </body>
 </html>
