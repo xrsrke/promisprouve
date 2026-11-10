@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Thumbnail</title>
+<style>
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400 600;
+    src: url('fonts/inter-latin-ext.woff2') format('woff2'),
+         url('fonts/inter-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 400 600;
+    src: url('fonts/fraunces-latin-ext.woff2') format('woff2'),
+         url('fonts/fraunces-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/jetbrains-mono-latin-ext.woff') format('woff'),
+         url('fonts/jetbrains-mono-latin.woff') format('woff');
+  }
+
+  :root {
+    --bg: #fafaf7;
+    --ink: #111111;
+    --muted: #6b6b66;
+    --rule: #d8d6ce;
+    --bleu: #000091;
+    --rouge: #E1000F;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 1200px;
+    height: 630px;
+    background: var(--bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .canvas {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+  }
+
+  .stripe-left  { background: var(--bleu); }
+  .stripe-right { background: var(--rouge); }
+
+  .center {
+    background: var(--bg);
+    border-left: 1px solid rgba(0,0,0,0.08);
+    border-right: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 48px 40px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 15px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .eyebrow::before,
+  .eyebrow::after {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 92px;
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .candidates {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 36px;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .candidate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .portrait {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    filter: grayscale(1) contrast(1.04);
+    display: block;
+  }
+
+  .name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .party {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .vs {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="stripe-left"></div>
+  <div class="center">
+    <div class="eyebrow">Présidentielle · 2027</div>
+    <h1>Ils l'affirment.<em>On vérifie.</em></h1>
+    <div class="candidates">
+      <div class="candidate">
+        <div class="portrait">
+          <img src="img/jean-luc-melenchon.jpg" alt="Jean-Luc Mélenchon">
+        </div>
+        <div class="name">Jean-Luc Mélenchon</div>
+        <div class="party">LFI</div>
+      </div>
+      <div class="vs">vs</div>
+      <div class="candidate">
+        <div class="portrait">
+          <img src="img/marine-le-pen.jpg" alt="Marine Le Pen">
+        </div>
+        <div class="name">Marine Le Pen</div>
+        <div class="party">RN</div>
+      </div>
+    </div>
+  </div>
+  <div class="stripe-right"></div>
+</div>
+</body>
+</html>
